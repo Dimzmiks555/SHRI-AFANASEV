@@ -1,0 +1,7 @@
+/* Общее */
+body.theme_dark{
+    background: radial-gradient(circle at 50% 50%, #130E00 0%, #000000 100%);
+}
+body.theme_light {
+    background: #FFFFFF;
+}
