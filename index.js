@@ -4,8 +4,9 @@ const app = express();
 app.use(express.static(__dirname + '/build'));
 app.get('/', (request, response) => {
     response.sendFile(__dirname + '/build/index.html');
-    const slide = request.query.slide;
-    const theme = request.query.theme;
+    let slide = request.query.slide;
+    let theme = request.query.theme;
+    response.send("<h1>theme</h1>");
 });
 
 // Start the server
