@@ -5,3 +5,12 @@ body.theme_dark{
 body.theme_light {
     background: #FFFFFF;
 }
+.slide_title {
+    margin-top: 20px;
+    font-weight: bold;
+    color: #FCFBF7;
+    font-size: 30px;
+    line-height: 32px;
+    letter-spacing: 0px;
+    text-align: center;
+}

@@ -22,6 +22,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     return response.length > 1 ? response : response[0];
   };
+  // DATA
+  const title = document.querySelector('.slide_title');
+
   // Получение данных параметров
   let theme = getQueryParam('theme');
   let slide = getQueryParam('slide');
@@ -36,17 +39,19 @@ document.addEventListener("DOMContentLoaded", function(event) {
     body.classList.remove('theme_light');
     body.classList.add('theme_dark');
   }
-  //Генерация слайда
-  if (slide == 1){
-
-  }
+  //Слайд 1
+  let slideLeaders =  body.innerHTML = window.renderTemplate();
 
 
 
 
   // Глобальная функция рендера шаблона
   window.renderTemplate = function(alias, data) {
-    
+    if (slide == 1){
+      
+      title.innerHTML = window.renderTemplate();
+      return jsonData;
+    }
   }
 });
 
