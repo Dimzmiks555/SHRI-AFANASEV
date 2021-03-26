@@ -5,7 +5,9 @@ let jsonData = require('./data/data.json');
 app.set("view engine", "hbs");
 app.use(express.static(__dirname + '/build'));
 app.get("/", function(request, response){
-    response.render("index", {jsonData: JSON.stringify(jsonData)} );
+    let slide = request.query.slide;
+    sendSlide = jsonData[slide - 1];
+    response.render("index", sendSlide);
 }); 
 // Start the server
 const server = app.listen(port, (error) => {

@@ -47,11 +47,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
   // Глобальная функция рендера шаблона
   window.renderTemplate = function(alias, data) {
-    if (slide == 1){
-      
-      title.innerHTML = window.renderTemplate();
-      return jsonData;
-    }
+    
   }
 });
 
