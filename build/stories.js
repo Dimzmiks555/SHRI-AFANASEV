@@ -1,10 +1,13 @@
+ // DATA
+ window.renderTemplate = function(alias, data) {
+   console.log(data);
+  return `<h1 class="slide_title">${data.title}</h1> 
+  `
+}
+
 document.addEventListener("DOMContentLoaded", function(event) { 
-    let body = document.querySelector('body');
      // Глобальная функция рендера шаблона
-    window.renderTemplate = function(alias, data) {
-      console.log(alias);
-      return alias;
-    }
+    
     //Получение параметров из адресной строки
   var getQueryParam = function getQueryParam (param) {
     var queries = window.location.search, regex, resRegex, results, response;
@@ -28,47 +31,39 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     return response.length > 1 ? response : response[0];
   };
-  // DATA
-  async function GetData() {
-        // отправляет запрос и получаем ответ
-        const response = await fetch("/api", {
-            method: "GET",
-            headers: { "Accept": "application/json" }
-        });
-        // если запрос прошел нормально
-        if (response.ok === true) {
-            // получаем данные
-            const jsonData = await response.json();
-            return jsonData;
-        } else {
-          console.log("Ошибка HTTP: " + response.status);
-        }
-    }
-    let alias;
-    let data;
-  let jsonData = GetData().then(data => {
-    console.log(data);
-    alias = data.alias;
-    data = data.data;
-    return alias,data;
-  });
-  
-  console.log(alias);
+ 
+  async function Add() {
+    fetch("/api").then(response => {return response.json()}).then(test => {
+      
+      aliass = test;
+      
+      return aliass;
+      
+    })
+  }
+  Add();
+  console.log(aliass);
+ 
+  // alias = jsonData.alias;
+  // data = jsonData.data;
+  // console.log(alias);
 
   // Получение данных параметров
   let theme = getQueryParam('theme');
   let slide = getQueryParam('slide');
   // Установка темы
-
-  if (theme == 'light') {
-    body.classList.add('theme_light');
-  } else if (theme == 'dark'){
-    body.classList.remove('theme_light');
-    body.classList.add('theme_dark');
-  } else {
-    body.classList.remove('theme_light');
-    body.classList.add('theme_dark');
-  }
+  // if (!theme){
+  //   body.classList.remove('theme_light');
+  //   body.classList.add('theme_dark');
+  // }
+  // if (theme == 'light') {
+  //   body.classList.add('theme_light');
+  // } else if (theme == 'dark'){
+  //   body.classList.remove('theme_light');
+  //   body.classList.add('theme_dark');
+  // } else {
+    
+  // }
 
 
 
