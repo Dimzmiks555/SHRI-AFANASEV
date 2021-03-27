@@ -1,4 +1,9 @@
 document.addEventListener("DOMContentLoaded", function(event) { 
+    let body = document.querySelector('body');
+     // Глобальная функция рендера шаблона
+    window.renderTemplate = function(alias, data) {
+      return 'Привет';
+    }
     //Получение параметров из адресной строки
   var getQueryParam = function getQueryParam (param) {
     var queries = window.location.search, regex, resRegex, results, response;
@@ -23,7 +28,22 @@ document.addEventListener("DOMContentLoaded", function(event) {
     return response.length > 1 ? response : response[0];
   };
   // DATA
-  const title = document.querySelector('.slide_title');
+  async function GetData() {
+        // отправляет запрос и получаем ответ
+        const response = await fetch("/api", {
+            method: "GET",
+            headers: { "Accept": "application/json" }
+        });
+        // если запрос прошел нормально
+        if (response.ok === true) {
+            // получаем данные
+            const jsonData = await response.json();
+            return jsonData;
+        } else {
+          console.log("Ошибка HTTP: " + response.status);
+        }
+    }
+    let jsonData= GetData();
 
   // Получение данных параметров
   let theme = getQueryParam('theme');
@@ -39,15 +59,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
     body.classList.remove('theme_light');
     body.classList.add('theme_dark');
   }
-  //Слайд 1
-  let slideLeaders =  body.innerHTML = window.renderTemplate();
 
 
 
 
-  // Глобальная функция рендера шаблона
-  window.renderTemplate = function(alias, data) {
-    
-  }
+ 
 });
 

@@ -8,9 +8,11 @@ let html = `<html>
 </head>
 <body class="theme_light">
     <script type="text/javascript" src="stories.js"></script>
-    <script>
-        const body = document.querySelector('body');
-        body.innerHTML = window.renderTemplate();
+    <script defer>
+        document.addEventListener("DOMContentLoaded", function(event) { 
+            const body = document.querySelector('body');
+            body.innerHTML = window.renderTemplate(alias, data);
+        })
     </script>
     
 </body>
@@ -18,13 +20,11 @@ let html = `<html>
 app.set("view engine", "hbs");
 app.use(express.static(__dirname + '/build'));
 app.get("/", function(request, response){
-    let slide = request.query.slide;
-    sendSlide = jsonData[slide - 1];
-    JSON.stringify(sendSlide);
-    response.write(sendSlide);
-    response.write(html);
-    response.end();
+    response.send(html);
 }); 
+app.get("/api", (req, res) => {
+    res.send(jsonData);
+})
 
 // Start the server
 const server = app.listen(port, (error) => {
