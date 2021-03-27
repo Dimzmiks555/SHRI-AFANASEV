@@ -2,7 +2,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
     let body = document.querySelector('body');
      // Глобальная функция рендера шаблона
     window.renderTemplate = function(alias, data) {
-      return 'Привет';
+      console.log(alias);
+      return alias;
     }
     //Получение параметров из адресной строки
   var getQueryParam = function getQueryParam (param) {
@@ -43,7 +44,16 @@ document.addEventListener("DOMContentLoaded", function(event) {
           console.log("Ошибка HTTP: " + response.status);
         }
     }
-    let jsonData= GetData();
+    let alias;
+    let data;
+  let jsonData = GetData().then(data => {
+    console.log(data);
+    alias = data.alias;
+    data = data.data;
+    return alias,data;
+  });
+  
+  console.log(alias);
 
   // Получение данных параметров
   let theme = getQueryParam('theme');

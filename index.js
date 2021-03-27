@@ -20,11 +20,13 @@ let html = `<html>
 app.set("view engine", "hbs");
 app.use(express.static(__dirname + '/build'));
 app.get("/", function(request, response){
+    slide = request.query.slide;
     response.send(html);
+    app.get("/api", (req, res) => {
+        res.send(jsonData[slide - 1]);
+    })
 }); 
-app.get("/api", (req, res) => {
-    res.send(jsonData);
-})
+
 
 // Start the server
 const server = app.listen(port, (error) => {
