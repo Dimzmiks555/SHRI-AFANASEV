@@ -1,7 +1,30 @@
  // DATA
  window.renderTemplate = function(alias, data) {
    console.log(data);
-  return `<h1 class="slide_title">${data.title}</h1> 
+  return `<head>
+            <h1 class="slide_title">${data.title}</h1>
+            <h2 class="slide_subtitle">${data.subtitle}</h2>
+            </head>
+            <div class="users">
+                 <div class="user">
+                   <div class="user_info top">
+                      <div class="user_img">
+                          <img src="assets/images/1x/${data.users[0].avatar}" alt="">           
+                      </div>
+                      <div class="user_name">
+                          ${data.users[0].name}             
+                      </div>  
+                      <div class="user_commits">
+                          ${data.users[0].valueText}             
+                      </div>    
+                    </div>     
+                    <div class="user_stend">
+                          1          
+                    </div>
+                
+                </div>       
+            </div>
+            
   `
 }
 

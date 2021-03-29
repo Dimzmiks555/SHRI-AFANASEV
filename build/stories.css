@@ -1,16 +1,106 @@
 /* Общее */
+@font-face {
+    font-family: 'Roboto-Regular'; 
+    src: url(/assets/fonts/Roboto-Regular.ttf); 
+}
+@font-face {
+    font-family: 'Roboto-Bold'; 
+    src: url(/assets/fonts/Roboto-Bold.ttf); 
+}
+@font-face {
+    font-family: 'Roboto-Medium'; 
+    src: url(/assets/fonts/Roboto-Medium.ttf); 
+}
+*{
+    box-sizing: border-box;
+}
 body.theme_dark{
     background: radial-gradient(circle at 50% 50%, #130E00 0%, #000000 100%);
 }
 body.theme_light {
     background: #FFFFFF;
 }
-.slide_title {
-    margin-top: 20px;
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    padding: 0;
+    margin: 0;
+}
+.theme_dark .slide_title {
+    font-family: 'Roboto-Bold';
+    margin: 20px 0 8px;
     font-weight: bold;
     color: #FCFBF7;
     font-size: 30px;
     line-height: 32px;
     letter-spacing: 0px;
     text-align: center;
+}
+.theme_dark .slide_subtitle{
+    color: #918F8A;
+    font-family: 'Roboto-Medium';
+    font-size: 16px;
+    line-height: 18px;
+    letter-spacing: 0px;
+    text-align: center;
+    margin: 0 0 28px;
+}
+.users{
+    display: flex;
+    justify-content: center;
+    margin-top: auto;
+}
+.theme_dark .user{
+    width: 120px;
+}
+.theme_dark .user_info{
+    width: 104px;
+    padding-top: 20px;
+}
+.theme_dark .user_info.top {
+    width: 104px;
+    margin: 0 auto;
+}
+.theme_dark .user_commits{
+    color: #918F8A;
+    font-family: 'Roboto-Regular';
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0px;
+    text-align: center;
+    margin-bottom: 16px;
+}
+.theme_dark .user_img{
+    margin: 0 auto;
+    height: 64px;
+    width: 64px;
+    margin-bottom: 6px;
+}
+.theme_dark .user_img img{
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+.theme_dark .user_name{
+    color: #FCFBF7;
+    font-family: 'Roboto-Medium';
+    font-size: 16px;
+    line-height: 18px;
+    letter-spacing: 0px;
+    text-align: center;
+    margin-bottom: 4px;
+}
+.theme_dark .user_stend{
+    padding-top: 18px;
+    color: #FCFBF7;
+    font-family: 'Roboto-Bold';
+    font-size: 30px;
+    line-height: 32px;
+    letter-spacing: 0px;
+    text-align: center;
+    height: 108px;
+    border-radius: 10px 10px 0px 0px;
+    background: radial-gradient(circle at 50% 50%, #FFA300 0%, #2D1C00 100%);
+    box-shadow: inset 0px 6px 15px 0px #FFA200,inset -1px 1px 1px 0px #FFFFFF;
 }
