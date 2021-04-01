@@ -15,7 +15,7 @@
     box-sizing: border-box;
 }
 body.theme_dark{
-    background: radial-gradient(circle at 50% 50%, #130E00 0%, #000000 100%);
+    background: radial-gradient(70.24% 70.24% at 49.87% 29.76%, rgba(19, 14, 0, 0.9) 0%, #000000 100%);
 }
 body.theme_light {
     background: #FFFFFF;
@@ -137,6 +137,12 @@ body{
     min-height: 108px;
     background: radial-gradient(91.67% 122.17% at 69.17% -11.17%, #FFA300 0%, #2D1C00 100%);
     box-shadow: inset -1px 1px 1px rgba(255, 255, 255, 0.4), inset 0px 6px 15px rgba(255, 162, 0, 0.4);
+}
+.left .user_stend{
+    padding-right: 16px;
+}
+.right .user_stend{
+    padding-left: 16px;
 }
 .right.second{
     transform: translateX(-16px);
