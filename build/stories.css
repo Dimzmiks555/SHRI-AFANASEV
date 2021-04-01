@@ -78,6 +78,7 @@ body{
     position: relative;
 }
 .theme_dark .user_emoji{
+    z-index: 99;
     width: 64px;
     height: 32px;
     line-height: 32px;
@@ -90,6 +91,12 @@ body{
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    filter: grayscale(100%);
+    filter: gray; /* IE 6-9 */
 }
 .theme_dark .user_name{
     color: #FCFBF7;
