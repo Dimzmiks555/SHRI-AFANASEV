@@ -6,23 +6,91 @@
             <h2 class="slide_subtitle">${data.subtitle}</h2>
             </head>
             <div class="users">
-                 <div class="user">
-                   <div class="user_info top">
+                <div class="user third left">
+                  <div class="user_info people">
+                    <div class="user_img">
+                        <img src="assets/images/1x/${data.users[4].avatar}" alt="">           
+                    </div>
+                    <div class="user_name">
+                        ${data.users[4].name}             
+                    </div>  
+                    <div class="user_commits">
+                        ${data.users[4].valueText}             
+                    </div>    
+                  </div>     
+                  <div class="user_stend">
+                        ${data.users[4].id}          
+                  </div>
+              
+                </div>  
+                <div class="user second left">
+                  <div class="user_info">
+                    <div class="user_img">
+                        <img src="assets/images/1x/${data.users[2].avatar}" alt="">           
+                    </div>
+                    <div class="user_name">
+                        ${data.users[2].name}             
+                    </div>  
+                    <div class="user_commits">
+                        ${data.users[2].valueText}             
+                    </div>    
+                  </div>     
+                  <div class="user_stend">
+                        3          
+                  </div>
+              
+                </div>    
+                <div class="user top">
+                  <div class="user_info">
+                    <div class="user_img">
+                        <img src="assets/images/1x/${data.users[0].avatar}" alt="">           
+                    </div>
+                    <div class="user_name">
+                        ${data.users[0].name}             
+                    </div>  
+                    <div class="user_commits">
+                        ${data.users[0].valueText}             
+                    </div>    
+                  </div>     
+                  <div class="user_stend">
+                        1          
+                  </div>
+              
+                </div>     
+                 <div class="user right second">
+                   <div class="user_info">
                       <div class="user_img">
-                          <img src="assets/images/1x/${data.users[0].avatar}" alt="">           
+                          <img src="assets/images/1x/${data.users[1].avatar}" alt="">           
                       </div>
                       <div class="user_name">
-                          ${data.users[0].name}             
+                          ${data.users[1].name}             
                       </div>  
                       <div class="user_commits">
-                          ${data.users[0].valueText}             
+                          ${data.users[1].valueText}             
                       </div>    
                     </div>     
                     <div class="user_stend">
-                          1          
+                          2        
                     </div>
                 
-                </div>       
+                </div>
+                <div class="user right third">
+                   <div class="user_info">
+                      <div class="user_img">
+                          <img src="assets/images/1x/${data.users[3].avatar}" alt="">           
+                      </div>
+                      <div class="user_name">
+                          ${data.users[3].name}             
+                      </div>  
+                      <div class="user_commits">
+                          ${data.users[3].valueText}             
+                      </div>    
+                    </div>     
+                    <div class="user_stend">
+                          4          
+                    </div>
+                
+                </div>            
             </div>
             
   `

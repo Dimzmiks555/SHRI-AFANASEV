@@ -12,7 +12,6 @@ app.get("/", function(request, response){
     } else {
         theme = 'theme_light'
     }
-    console.log(theme);
     let alias = jsonData[slide-1].alias;
     let data = jsonData[slide-1].data;
     
