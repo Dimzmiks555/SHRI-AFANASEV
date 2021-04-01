@@ -42,7 +42,11 @@
                 </div>    
                 <div class="user top">
                   <div class="user_info">
+                    
                     <div class="user_img">
+                        <div class="user_emoji">
+                          ${data.emoji}          
+                        </div>
                         <img src="assets/images/1x/${data.users[0].avatar}" alt="">           
                     </div>
                     <div class="user_name">
