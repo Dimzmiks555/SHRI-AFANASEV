@@ -1,7 +1,5 @@
  // DATA
 window.renderTemplate = function(alias, data) {
-  
-  let name = data.users[4].name.replace(" ", "<br>");
   function createBlock(e, cls, html){
     let elem = document.createElement(e);
     if (cls) {
@@ -29,14 +27,44 @@ window.renderTemplate = function(alias, data) {
   // Content
   let content = createBlock('main');
   
-  let users = createBlock('div', 'users');
-  content.append(users);
     // User Left
-    // User Top
+    function ActiveValue(){
+      for (i = 0; i < data.values.length; i++) {
+        if (data.values[i].active){
+          return data.values[i].value;
+        }
+      }
+    }
     
+    function renderChart(id){
+      let  chartStend, chartAmount, chartBody, chartPeriod;
+      // Chart
 
-    function createUser(id) {
+        // Chart Stend
+        chartStend = createBlock('div', 'chart_stend');
+
+          // Chart Amount
+          chartAmount = createBlock('div', 'chart_amount', data.values[id].value);
+          chartStend.append(chartAmount);
+          // Chart Body
+          chartBody = createBlock('div', 'chart_body');
+          if (data.values[id].active) {
+            chartBody.classList.add('active');
+            chartBody.style.height = '100%'
+          }
+          let activeValue = ActiveValue();
+          console.log(activeValue);
+          // chartBody.style.height = data.values[id].value / ( activeValue / 100 );
+          chartStend.append(chartBody);
+          // Chart Period
+          chartPeriod = createBlock('div', 'chart_period', data.values[id].title);
+          chartStend.append(chartPeriod);
+
+      return chartStend;
+    }
+    function renderUser(id) {
       let userBlock, userInfo, userImgBlock, userEmoji, userImg, userName, userCommits, userStend;
+              
         userBlock = createBlock('div','user');
 
         if (id == 0) {
@@ -65,7 +93,6 @@ window.renderTemplate = function(alias, data) {
             // User Emoji
 
             if (id == 0) {
-              console.log(1);
               userEmoji = createBlock('div','user_emoji', data.emoji);
               userImgBlock.append(userEmoji);
             }
@@ -91,37 +118,39 @@ window.renderTemplate = function(alias, data) {
           userBlock.append(userStend);
         return userBlock;
     };
-    console.log(createUser(3));
   if (alias == 'leaders') {
 
     // Users 
-
+    
+    let users = createBlock('div', 'users');
+    content.append(users);
     let = usersArray = Array();
     for (let i = 0; i < 5; i++){
-        usersArray[i] = createUser(i);
+        usersArray[i] = renderUser(i);
     }
-    users.append(usersArray[4],usersArray[2],usersArray[0],usersArray[1],usersArray[3]);
-      //        <div class="user_info">
-               
-      //          <div class="user_img">
-      //              <div class="user_emoji">
-      //                ${data.emoji}          
-      //              </div>
-      //              <img src="assets/images/1x/${data.users[0].avatar}" alt="">           
-      //          </div>
-      //          <div class="user_name">
-      //              ${data.users[0].name}             
-      //          </div>  
-      //          <div class="user_commits">
-      //              ${data.users[0].valueText}             
-      //          </div>    
-      //        </div>     
-      //        <div class="user_stend">
-      //              1          
-      //        </div>
-         
-    
 
+    users.append(usersArray[4],usersArray[2],usersArray[0],usersArray[1],usersArray[3]);
+
+  }
+  if (alias == 'chart'){
+    
+    let chart = createBlock('div', 'chart');
+    content.append(chart);
+    let = chartArray = Array();
+    function Active(){
+      for (i = 0; i < data.values.length; i++) {
+        if (data.values[i].active){
+          return i;
+        }
+      }
+    }
+    let minAm = Active() - 6;
+    let maxAm = Active() + 3;
+    for (i = minAm; i < maxAm; i++) {
+      chartArray[i] = renderChart(i);
+      chart.append(chartArray[i]);
+    }
+    
   }
 
   
@@ -131,87 +160,6 @@ window.renderTemplate = function(alias, data) {
    
 
 
-//    if (alias == 'leaders') {
-//      let content = `<div class="users">
-//      <div class="user third left">
-//        <div class="user_info people">
-//          <div class="user_img">
-//              <img src="assets/images/1x/${data.users[4].avatar}" alt="">           
-//          </div>
-//          <div class="user_name">
-//              ${name}             
-//          </div>  
-//          <div class="user_commits">
-//              ${data.users[4].valueText}             
-//          </div>    
-//        </div>     
-//        <div class="user_stend">
-//              5         
-//        </div>
-   
-//      </div>  
-//      <div class="user second left">
-//        <div class="user_info">
-//          <div class="user_img">
-//              <img src="assets/images/1x/${data.users[2].avatar}" alt="">           
-//          </div>
-//          <div class="user_name">
-//              ${data.users[2].name}             
-//          </div>  
-//          <div class="user_commits">
-//              ${data.users[2].valueText}             
-//          </div>    
-//        </div>     
-//        <div class="user_stend">
-//              3          
-//        </div>
-   
-//      </div>    
-//      
-//       <div class="user right second">
-//         <div class="user_info">
-//            <div class="user_img">
-//                <img src="assets/images/1x/${data.users[1].avatar}" alt="">           
-//            </div>
-//            <div class="user_name">
-//                ${data.users[1].name}             
-//            </div>  
-//            <div class="user_commits">
-//                ${data.users[1].valueText}             
-//            </div>    
-//          </div>     
-//          <div class="user_stend">
-//                2        
-//          </div>
-     
-//      </div>
-//      <div class="user right third">
-//         <div class="user_info">
-//            <div class="user_img">
-//                <img src="assets/images/1x/${data.users[3].avatar}" alt="">           
-//            </div>
-//            <div class="user_name">
-//                ${data.users[3].name}             
-//            </div>  
-//            <div class="user_commits">
-//                ${data.users[3].valueText}             
-//            </div>    
-//          </div>     
-//          <div class="user_stend">
-//                4          
-//          </div>
-     
-//      </div>            
-//  </div>
-//      `
-//    }
-//   return `<head>
-//             <h1 class="slide_title">${data.title}</h1>
-//             <h2 class="slide_subtitle">${data.subtitle}</h2>
-//           </head>
-            
-            
-//   `
 }
 
 document.addEventListener("DOMContentLoaded", function(event) { 
@@ -249,28 +197,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
     })
   }
   Add();
-  console.log(aliass);
- 
-  // alias = jsonData.alias;
-  // data = jsonData.data;
-  // console.log(alias);
-
-  // Получение данных параметров
-  let theme = getQueryParam('theme');
-  let slide = getQueryParam('slide');
-  // Установка темы
-  // if (!theme){
-  //   body.classList.remove('theme_light');
-  //   body.classList.add('theme_dark');
-  // }
-  // if (theme == 'light') {
-  //   body.classList.add('theme_light');
-  // } else if (theme == 'dark'){
-  //   body.classList.remove('theme_light');
-  //   body.classList.add('theme_dark');
-  // } else {
-    
-  // }
 
 
 
