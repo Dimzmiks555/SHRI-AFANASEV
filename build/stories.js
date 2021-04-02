@@ -2,47 +2,100 @@
 window.renderTemplate = function(alias, data) {
   
   let name = data.users[4].name.replace(" ", "<br>");
+  function createBlock(e, cls, html){
+    let elem = document.createElement(e);
+    if (cls) {
+      elem.className = cls;
+    }
+    if (html) {
+      elem.innerHTML = html;
+    }
+    return elem;
+  };
   //Header
 
-  let header = document.createElement('header');
+  let header = createBlock('header');
 
       // Title
 
-      let title = document.createElement('h1');
-      title.className = 'slide_title';
-      title.innerHTML = data.title;
+      let title = createBlock('h1', 'slide_title', data.title);
       header.append(title);
 
       // Subtitle 
 
-      let subtitle = document.createElement('h2');
-      subtitle.className = 'slide_subtitle';
-      subtitle.innerHTML = data.subtitle;
+      let subtitle = createBlock('h2', 'slide_subtitle', data.subtitle);
       header.append(subtitle);
 
   // Content
-  let content = document.createElement('main');
+  let content = createBlock('main');
+  
+  let users = createBlock('div', 'users');
+  content.append(users);
+    // User Left
+    // User Top
+    
 
+    function createUser(id) {
+      let userBlock, userInfo, userImgBlock, userEmoji, userImg, userName, userCommits, userStend;
+        userBlock = createBlock('div','user');
+        if (id == 0) {
+          userBlock.className = 'top';
+        } 
+        else if (id == 1) {
+          userBlock.className = 'second right';
+        }
+        else if (id == 2) {
+          userBlock.className = 'second left';
+        }
+        else if (id == 3) {
+          userBlock.className = 'third right';
+        }
+        else if (id == 4) {
+          userBlock.className = 'third left';
+        }
+        // User Info
+        userInfo = createBlock('div','user_info');
+        userBlock.append(userInfo);
+
+          // User Img Block
+          userImgBlock = createBlock('div','user_img');
+          userInfo.append(userImgBlock);
+
+            // User Emoji
+
+            if (id == 0) {
+              console.log(1);
+              userEmoji = createBlock('div','user_emoji', data.emoji);
+              userImgBlock.append(userEmoji);
+            }
+            // User Img
+            userImg = createBlock('img');
+            userImg.src = `assets/images/1x/${data.users[id].avatar}`;
+            userImg.alt = 'Пользователь';
+            userImgBlock.append(userImg);
+          
+          // User Name
+            userName = createBlock('div', 'user_name', data.users[id].name)
+            userInfo.append(userName);
+          // User Commits
+            userCommits = createBlock('div', 'user_commits', data.users[id].valueText) 
+            userInfo.append(userCommits);
+
+        // User Stend
+          userStend = createBlock('div', 'user_stend', Number(id) + 1);
+          userBlock.append(userStend);
+        return userBlock;
+    };
+    console.log(createUser(3));
   if (alias == 'leaders') {
 
     // Users 
 
-    let users = document.createElement('div');
-    users.className = 'users';
-    content.append(users);
-
-      // User Top
-      let userTop = document.createElement('div');
-      userTop.className = 'user top';
-      users.append(userTop);
-
-      // User Info
-      let userInfo = document.createElement('div');
-      userInfo.className = 'user_info';
-      users.append(userTop);
-
-
-
+    let = usersArray = Array();
+    for (let i = 0; i < 5; i++){
+        usersArray[i] = createUser(i);
+    }
+    users.append(usersArray[4],usersArray[2],usersArray[0],usersArray[1],usersArray[3]);
       //        <div class="user_info">
                
       //          <div class="user_img">
