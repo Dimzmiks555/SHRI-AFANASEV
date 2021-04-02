@@ -38,20 +38,21 @@ window.renderTemplate = function(alias, data) {
     function createUser(id) {
       let userBlock, userInfo, userImgBlock, userEmoji, userImg, userName, userCommits, userStend;
         userBlock = createBlock('div','user');
+
         if (id == 0) {
-          userBlock.className = 'top';
+          userBlock.classList.add('top');
         } 
         else if (id == 1) {
-          userBlock.className = 'second right';
+          userBlock.classList.add('second','right');
         }
         else if (id == 2) {
-          userBlock.className = 'second left';
+          userBlock.classList.add('second','left');
         }
         else if (id == 3) {
-          userBlock.className = 'third right';
+          userBlock.classList.add('third','right');
         }
         else if (id == 4) {
-          userBlock.className = 'third left';
+          userBlock.classList.add('third','left');
         }
         // User Info
         userInfo = createBlock('div','user_info');
