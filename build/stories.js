@@ -69,6 +69,10 @@ window.renderTemplate = function(alias, data) {
               userEmoji = createBlock('div','user_emoji', data.emoji);
               userImgBlock.append(userEmoji);
             }
+            if (data.selectedUserId &&  data.users[id].id == data.selectedUserId){
+              userEmoji = createBlock('div','user_emoji', '👍');
+              userImgBlock.append(userEmoji);
+            } 
             // User Img
             userImg = createBlock('img');
             userImg.src = `assets/images/1x/${data.users[id].avatar}`;
@@ -76,7 +80,7 @@ window.renderTemplate = function(alias, data) {
             userImgBlock.append(userImg);
           
           // User Name
-            userName = createBlock('div', 'user_name', data.users[id].name)
+            userName = createBlock('div', 'user_name', data.users[id].name.replace(" ", "<br>"))
             userInfo.append(userName);
           // User Commits
             userCommits = createBlock('div', 'user_commits', data.users[id].valueText) 
