@@ -24,8 +24,8 @@ body.theme_light {
 body{
     display: flex;
     flex-direction: column;
-    /* justify-content: space-between; */
     height: 100%;
+    justify-content: space-between;
     padding: 0;
     margin: 0;
 }
