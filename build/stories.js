@@ -29,13 +29,16 @@ window.renderTemplate = function(alias, data) {
   
     // User Left
     function ActiveValue(){
-      for (i = 0; i < data.values.length; i++) {
-        if (data.values[i].active){
-          return data.values[i].value;
+      if (data.values){
+        for (i = 0; i < data.values.length; i++) {
+          if (data.values[i].active){
+            return data.values[i].value;
+          }
         }
       }
     }
     
+    let activeValue = ActiveValue();
     function renderChart(id){
       let  chartStend, chartAmount, chartBody, chartPeriod;
       // Chart
@@ -49,12 +52,11 @@ window.renderTemplate = function(alias, data) {
           // Chart Body
           chartBody = createBlock('div', 'chart_body');
           if (data.values[id].active) {
-            chartBody.classList.add('active');
+            chartStend.classList.add('active');
             chartBody.style.height = '100%'
+          } else {
+            chartBody.style.height = data.values[id].value / ( activeValue / 100 );
           }
-          let activeValue = ActiveValue();
-          console.log(activeValue);
-          // chartBody.style.height = data.values[id].value / ( activeValue / 100 );
           chartStend.append(chartBody);
           // Chart Period
           chartPeriod = createBlock('div', 'chart_period', data.values[id].title);
@@ -137,6 +139,7 @@ window.renderTemplate = function(alias, data) {
     let chart = createBlock('div', 'chart');
     content.append(chart);
     let = chartArray = Array();
+
     function Active(){
       for (i = 0; i < data.values.length; i++) {
         if (data.values[i].active){
@@ -150,7 +153,33 @@ window.renderTemplate = function(alias, data) {
       chartArray[i] = renderChart(i);
       chart.append(chartArray[i]);
     }
-    
+    // Leaders Block
+    let leaders = createBlock('div', 'leaders');
+    content.append(leaders);
+
+      // Leader
+
+      for (i = 0; i < 2; i++) {
+        let leader = createBlock('div', 'leader');
+        leaders.append(leader);
+
+        leaderImg = createBlock('img');
+        leaderImg.src = `assets/images/1x/${data.users[i].avatar}`;
+        leaderImg.alt = 'Пользователь';
+        leader.append(leaderImg);
+
+        leaderInfo = createBlock('div', 'leader_info');
+        leader.append(leaderInfo);
+
+          leaderName = createBlock('div', 'leader_name', data.users[i].name);
+          leaderCommits = createBlock('div', 'leader_commits', data.users[i].valueText);
+          leaderInfo.append(leaderName, leaderCommits);
+        if (i == 0){
+          let hr = createBlock('div', 'hr');
+          leader.after(hr);
+        }
+      }
+
   }
 
   

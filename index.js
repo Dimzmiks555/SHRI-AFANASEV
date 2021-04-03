@@ -33,7 +33,6 @@ app.get("/", function(request, response){
     response.send(html);
     
 }); 
-console.log(slide);
 app.get("/api", (req, res) => {
     res.send(jsonData[slide - 1]);
 })
