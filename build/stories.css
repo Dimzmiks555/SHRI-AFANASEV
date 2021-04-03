@@ -30,10 +30,10 @@ body{
     margin: 0;
 }
 main{
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    height: 100%;
 }
 .slide_title{
     font-family: 'Roboto-Bold';
@@ -201,9 +201,9 @@ main{
     margin-left: auto;
 }
 .chart {
+    flex-grow: 1;
     margin: 0 58px;
     display: flex;
-    height: 100%;
     justify-content: space-between;
     color: #918F8A;
 }
@@ -211,13 +211,12 @@ main{
     color: #BFBFBF
 }
 .chart_stend{
-    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
 }
 .chart_body{
-    height: 100%;
+    flex-grow: 1;
     min-height: 8px;
     margin: 0 auto;
     width: 40px;

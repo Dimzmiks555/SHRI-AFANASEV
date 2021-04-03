@@ -231,9 +231,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
   for (i = 0; i < 9; i++) {
     if (document.getElementsByClassName('chart_body')[i]) {
+      console.log(document.getElementsByClassName('chart_body')[i]);
       let stend = document.getElementsByClassName('chart_body')[i];
       if (!stend.parentNode.classList.contains('active')) {
-        stend.style.height = '20%';
+        stend.setAttribute("style","flex-grow:0.2");
       } 
     }
   }
