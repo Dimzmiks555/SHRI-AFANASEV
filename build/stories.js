@@ -237,7 +237,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         console.log(stend.childNodes[1].offsetHeight);
       } else {
         console.log(stend.childNodes[1]);
-        stend.childNodes[1].style.height = '20%';
+        stend.childNodes[1].style.height = '100%';
         console.log(stend.childNodes[1].offsetHeight);
       }
     }
