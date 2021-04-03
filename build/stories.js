@@ -37,7 +37,6 @@ window.renderTemplate = function(alias, data) {
         }
       }
     }
-    
     let activeValue = ActiveValue();
     function renderChart(id){
       let  chartStend, chartAmount, chartBody, chartPeriod;
@@ -53,10 +52,10 @@ window.renderTemplate = function(alias, data) {
           chartBody = createBlock('div', 'chart_body');
           if (data.values[id].active) {
             chartStend.classList.add('active');
-            chartBody.style.height = '117px'
+            chartBody.style.height = '100%'
           } else {
             console.log(data.values[id].value,activeValue);
-            chartBody.style.height = data.values[id].value / ( activeValue / 100 ) * 1.17;
+            chartBody.style.height = data.values[id].value / ( activeValue / 100 ) * (117 / 100);
           }
           chartStend.append(chartBody);
           // Chart Period
