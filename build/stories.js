@@ -53,16 +53,15 @@ window.renderTemplate = function(alias, data) {
           chartBody = createBlock('div', 'chart_body');
           if (data.values[id].active) {
             chartStend.classList.add('active');
-            chartBody.style.height = '100%'
+            chartBody.style.height = '117px'
           } else {
-            chartBody.style.height = data.values[id].value / ( activeValue / 100 );
+            console.log(data.values[id].value,activeValue);
+            chartBody.style.height = data.values[id].value / ( activeValue / 100 ) * 1.17;
           }
           chartStend.append(chartBody);
           // Chart Period
           chartPeriod = createBlock('div', 'chart_period', data.values[id].title);
           chartStend.append(chartPeriod);
-          
-      console.log(chartStend);
       return chartStend;
     }
     function renderUser(id) {
