@@ -61,7 +61,8 @@ window.renderTemplate = function(alias, data) {
           // Chart Period
           chartPeriod = createBlock('div', 'chart_period', data.values[id].title);
           chartStend.append(chartPeriod);
-
+          
+      console.log(chartStend);
       return chartStend;
     }
     function renderUser(id) {
