@@ -149,12 +149,6 @@ window.renderTemplate = function(alias, data) {
       chartArray[i] = renderChart(i);
 
       chart.append(chartArray[i]);
-      if (chartArray[i].classList.contains('active')) {
-        chartArray[i].childNodes[1].style.height = '100%';
-        // chartBody.style.height = '100%';
-      } else {
-        chartArray[i].childNodes[1].style.height = '20%';
-      }
     }
 
     // Change Height
@@ -235,7 +229,17 @@ document.addEventListener("DOMContentLoaded", function(event) {
   }
   Add();
 
-
+  for (i = 0; i < 9; i++) {
+    if (document.getElementsByClassName('chart_stend')[i]) {
+      let stend = document.getElementsByClassName('chart_stend')[i];
+      if (stend.classList.contains('active')) {
+        stend.childNodes[1].style.height = '100%';
+      } else {
+        stend.childNodes[1].style.height = '20%';
+      }
+    }
+  }
+  
 
 
  
