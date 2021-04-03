@@ -44,19 +44,14 @@ window.renderTemplate = function(alias, data) {
 
         // Chart Stend
         chartStend = createBlock('div', 'chart_stend');
-
+        if (data.values[id].active) {
+          chartStend.classList.add('active');
+        }
           // Chart Amount
           chartAmount = createBlock('div', 'chart_amount', data.values[id].value);
           chartStend.append(chartAmount);
           // Chart Body
           chartBody = createBlock('div', 'chart_body');
-          if (data.values[id].active) {
-            chartStend.classList.add('active');
-            chartBody.style.height = '100%'
-          } else {
-            console.log(data.values[id].value,activeValue);
-            chartBody.style.height = data.values[id].value / ( activeValue / 100 ) * (117 / 100);
-          }
           chartStend.append(chartBody);
           // Chart Period
           chartPeriod = createBlock('div', 'chart_period', data.values[id].title);
@@ -146,12 +141,26 @@ window.renderTemplate = function(alias, data) {
         }
       }
     }
+
     let minAm = Active() - 6;
     let maxAm = Active() + 3;
     for (i = minAm; i < maxAm; i++) {
+
       chartArray[i] = renderChart(i);
+
       chart.append(chartArray[i]);
+      if (chartArray[i].classList.contains('active')) {
+        chartArray[i].childNodes[1].style.height = '100%';
+        // chartBody.style.height = '100%';
+      } else {
+        chartArray[i].childNodes[1].style.height = '20%';
+      }
     }
+
+    // Change Height
+
+    
+
     // Leaders Block
     let leaders = createBlock('div', 'leaders');
     content.append(leaders);

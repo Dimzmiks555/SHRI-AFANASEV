@@ -65,7 +65,7 @@ main{
 .users{
     display: flex;
     justify-content: center;
-    margin-top: auto;
+    margin-top: -5px;
 }
 .user{
     width: 120px;
