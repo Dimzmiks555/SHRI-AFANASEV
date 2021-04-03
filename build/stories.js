@@ -233,9 +233,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
     if (document.getElementsByClassName('chart_stend')[i]) {
       let stend = document.getElementsByClassName('chart_stend')[i];
       if (stend.classList.contains('active')) {
-        stend.childNodes[1].style.height = '100%';
+        stend.childNodes[1].style.height = '117px';
+        console.log(stend.childNodes[1].offsetHeight);
       } else {
+        console.log(stend.childNodes[1]);
         stend.childNodes[1].style.height = '20%';
+        console.log(stend.childNodes[1].offsetHeight);
       }
     }
   }
